@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        td{
+            padding: 10px;
+        }
+        input{
+            padding:5px;
+        }
+    </style>
+
+    <form>
+        <fieldset style="width: 30%;">
+          <legend><em><b>Squares calculator</b></em></legend>
+          <table>
+            <tr>
+                <td>
+                    <label for="height">Rectangle Height (m) : </label>
+                </td>
+                <td>
+                    <input type="number" id="height" name="height">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="button" onclick="getSquaresCount()" value="Calculate">
+                </td>
+            </tr>
+          </table>
+        </fieldset>
+    </form>
+
+    <script>
+        
+        function getSquaresCount() {
+
+            var widthFromCm = 100*100;
+            var height = parseFloat(document.getElementById("height").value);
+
+            if (!isNaN(height)) {
+            
+                var heightbyCm = height * 100;
+
+                var count = 0;
+                var rowCount = 0;
+
+                for(var i = 1; count < heightbyCm; i++ ){
+
+                    count = count + i;
+
+                    if(count <= heightbyCm){
+                        rowCount++;
+                    }
+                }
+
+                if(rowCount !== 0){
+                    
+                    let blockCount = 0;
+
+                    for(var j = 1; j <= rowCount; j++ ){
+
+                        blockCount = blockCount + ( parseInt(widthFromCm / j ))
+
+                    }
+                    console.log("Squares Count = " , blockCount );
+                    
+                }else{
+                    
+                    alert("no Squares");
+                }
+                
+                
+            } else {
+                
+                alert("Entered value is invalid")
+            }
+
+
+        }
+
+    </script>
+
+    
+</body>
+</html>
